@@ -1,6 +1,6 @@
 {
   "routes": {
-    "/lucascruz772/Todo-list": {},
-    "/lucascruz772/Todo-list/tasks": {}
+    "/Todo-list": {},
+    "/Todo-list/tasks": {}
   }
 }

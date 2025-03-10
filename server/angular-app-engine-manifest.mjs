@@ -1,6 +1,6 @@
 
 export default {
-  basePath: 'https://github.com/lucascruz772/Todo-list',
+  basePath: 'https://lucascruz772.github.io/Todo-list',
   supportedLocales: {
   "en-US": ""
 },
