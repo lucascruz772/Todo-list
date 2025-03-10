@@ -1,0 +1,28 @@
+.home-container {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  h1 {
+    color: #333;
+    font-size: 32px;
+  }
+  
+  p {
+    color: #666;
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  .start-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .start-link:hover {
+    background-color: #0056b3;
+  }

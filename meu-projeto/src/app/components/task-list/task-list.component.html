@@ -1,0 +1,36 @@
+<div class="margemGeral">
+  <h2>Lista de Tarefas</h2>
+  <p>Bem-vindo a lista de tarefas!</p>
+  
+  <div class="task-summary">
+    <p>Total de tarefas: {{ getTotalTasks() }}</p>
+    <p>Tarefas concluídas: {{ getCompletedTasks() }}</p>
+    <p>Tarefas pendentes: {{ getTotalTasks() - getCompletedTasks() }}</p>
+  </div>
+
+  <div>
+  <p class="addTexto">Adicione uma nota tarefa:</p>
+  <input [(ngModel)]="newTask" class="taskInput" placeholder="Digite uma nova tarefa" />
+  <button (click)="addTask()" class="addTask">Adicionar</button>
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p> 
+</div>
+  
+<!-- Mensagem de parabéns -->
+<div *ngIf="showCongrats" class="congrats-message">
+  Parabéns! Você concluiu uma tarefa! 🎉
+</div>
+
+  <p>Confira as tarefas criadas:</p>
+  
+  <!-- Lista de tarefas -->
+  <ul>
+    <li *ngFor="let task of tasks" class="task-item" [@taskAnimation]>
+      <input type="checkbox" (change)="toggleTaskCompletion(task.id)" [checked]="task.completed">
+      <span [ngClass]="{'completed': task.completed}">{{ task.title }}</span>
+      <button (click)="removeTask(task.id)" class=buttonRemover>Remover</button>
+    </li>
+  </ul>
+    
+    <!-- Mensagem se não houver tarefas -->
+    <p *ngIf="tasks.length === 0">Nenhuma tarefa adicionada ainda.</p>
+  </div>

@@ -1,0 +1,218 @@
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+
+.taskInput{
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.addTask{
+  width: auto;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  left: 40%;
+}
+
+.addTask:hover {
+  background-color: #45a049;
+}
+
+.addTexto{
+  width: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+  
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+ }
+
+.buttonRemover {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttonRemover:hover {
+  background-color: #c0392b;
+}
+
+.margemGeral {
+  max-width: 500px; /* Ajuste para centralizar melhor o conteúdo */
+  margin: 0 auto;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.task-summary {
+  margin: 20px 0; // Mantém o espaçamento externo
+  padding: 15px; // Um pouco mais de espaço interno
+  background: linear-gradient(135deg, #ffffff, #f0f4f8); // Gradiente sutil
+  border-radius: 10px; // Bordas mais arredondadas
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // Sombra moderna e suave
+  display: flex; // Usamos flexbox para alinhar os contadores
+  justify-content: space-between; // Espalha os itens igualmente
+  align-items: center; // Centraliza verticalmente
+  transition: transform 0.2s ease; // Animação leve ao interagir
+
+  &:hover {
+    transform: translateY(-2px); // Eleva um pouco ao passar o mouse
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); // Sombra mais forte no hover
+  }
+}
+
+.task-summary p {
+  margin: 0; // Remove margem padrão para melhor controle
+  font-size: 16px; // Tamanho de fonte confortável
+  font-weight: 500; // Leve negrito para destacar
+  color: #2c3e50; // Cor mais escura e moderna
+  padding: 8px 12px; // Espaçamento interno para cada contador
+  border-radius: 6px; // Bordas arredondadas nos itens
+  background-color: rgba(255, 255, 255, 0.8); // Fundo leve para contraste
+  transition: background-color 0.3s ease; // Transição suave na cor
+
+  // Estilização específica para cada tipo de contador
+  &:nth-child(1) { // "Total de tarefas"
+    color: #2980b9; // Azul escuro
+    background-color: rgba(41, 128, 185, 0.1); // Fundo azul claro
+  }
+
+  &:nth-child(2) { // "Tarefas concluídas"
+    color: #27ae60; // Verde escuro
+    background-color: rgba(39, 174, 96, 0.1); // Fundo verde claro
+  }
+
+  &:nth-child(3) { // "Tarefas pendentes"
+    color: #c0392b; // Vermelho escuro
+    background-color: rgba(192, 57, 43, 0.1); // Fundo vermelho claro
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1); // Fundo mais opaco no hover
+  }
+}
+
+// Responsividade para telas menores
+@media (max-width: 600px) {
+  .task-summary {
+    flex-direction: column; // Empilha os contadores em telas pequenas
+    gap: 10px; // Espaço entre os itens
+  }
+
+  .task-summary p {
+    width: 100%; // Ocupa toda a largura
+    text-align: center; // Centraliza o texto
+  }
+}
+
+.error-message {
+  color: #c0392b; // Vermelho escuro para indicar erro
+  font-size: 14px;
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: rgba(192, 57, 43, 0.1); // Fundo vermelho claro
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Animação de parabéns */
+.congrats-message {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  background-color: #27ae60; // Verde de sucesso
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: bounceIn 0.5s ease-out, fadeOut 0.5s 2.5s ease-in forwards;
+  z-index: 1000; // Garante que fique acima de tudo
+}
+
+/* Animação de entrada */
+@keyframes bounceIn {
+  0% {
+    transform: translateX(-50%) scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-50%) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animação de saída */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+}
+
+/* Estilização dos itens da lista */
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease; // Mantém transições para outras propriedades
+}
+
+/* Efeito ao concluir */
+.completed {
+  text-decoration: line-through;
+  color: #27ae60; // Verde para concluídas
+  transition: color 0.3s ease;
+}
